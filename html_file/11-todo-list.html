@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 11 todo list</title>
+  <link rel = "stylesheet" href="../css_file/11-todo-list.css">
+</head>
+
+<body>
+  <input class="Todo1" placeholder="Input your todo here 1" onkeypress=" 
+    if(event.key == 'Enter'){ 
+      array.push(todo1.value);
+      console.log(array);
+      todo1.value = '';
+    }
+    ">
+
+  <button onclick=" array.push(todo1.value);
+    console.log(array);"> Add todo</button>
+  <p style="margin: 100px 0px;"> </p>
+
+  <input class="Todo2" placeholder="Input your todo here 2" onkeypress=" 
+      if(event.key == 'Enter'){ 
+      array2.push(todo2.value);
+      todo2.value = '';
+      printAll(array2);
+    }
+    ">
+  <div class="todo2-div">
+  </div>
+
+
+  <!-- 这一部分作为好看的Todo List 代码-->
+  <p> Your Todo List</p>
+  <div class="Todo-project-displayer">
+  </div>
+</body>
+
+<script>
+  let array = [];
+  let todo1 = document.querySelector('.Todo1');
+
+  let array2 = [];
+  let todo2 = document.querySelector('.Todo2');
+  function printAll(array) {
+    let temp = document.querySelector('.todo2-div');
+    let replacement = '';
+    for (let i = 0; i < array2.length; i++) {
+      const html = `<p>${array2[i]} </p>`
+      replacement += html;
+    }
+    temp.innerHTML = replacement;
+  }
+</script>
+<script src="../javascript_file/11-todo-list.js"></script>
+
+</html>

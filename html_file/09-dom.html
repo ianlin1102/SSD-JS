@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> DOM </title>
+  </head>
+  <body>
+    <!--<div id="test">
+            <span style="display:none">隐藏文本</span>
+            <p>Hello  World</p>
+          </div>
+        -->
+      <button class = 'first' onclick="
+      if(!changed){
+        buttonObject.innerText = 'Kick'
+      }else{
+        buttonObject.innerText = 'Kicked'
+      }
+      changed = !changed;
+         "> First Button </button>
+      <button class = 'second'> Second Button </button>
+
+  </body>
+  <script>
+    //document.body.innerHTML = "<p> replaced </p>";
+    //console.log( document.querySelector('button') );
+    //console.log(document.querySelector('#test').innerHTML);
+    //console.log(document.querySelector('#test').innerText);
+
+    let buttonObject = document.querySelector('button')
+    let changed = false;
+    console.log(buttonObject);
+    console.log(buttonObject.innerHTML);
+    console.log(buttonObject.innerText);
+    let anotherButtonObject = buttonObject;
+    anotherButtonObject.innerText = 'Changed Button';
+
+
+  </script>
+</html>

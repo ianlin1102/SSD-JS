@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 12 advance function</title>
+
+</head>
+
+<body>
+  <button class="natural-button" onclick="
+    console.log('natural button clicked');
+    "> one </button>
+  <button class="js-button"> two </button>
+
+</body>
+<script>
+  const js_button = document.querySelector('.js-button');
+  const natural_button = document.querySelector('.natural-button');
+
+  const handleClick = () => {
+    console.log('js button clicked');
+  };
+  js_button.addEventListener('click', handleClick);
+
+  js_button.removeEventListener('click', handleClick);
+  //不能这么做
+  js_button.addEventListener('click', () => {
+    console.log('js button clicked');
+  });
+  js_button.removeEventListener('click', () => {
+    console.log('js button clicked');
+  });
+
+  document.body.addEventListener('keydown', (event) => {
+    console.log(event.key);
+  });
+
+  function removeTwoEggs(foods){
+    let counter = 0;
+    function test (something){
+      if(something != 'egg' || counter >=2){
+        return true;
+      }
+      else if(counter <2){
+        counter++;
+        return false;
+      }
+    } 
+    return foods.filter(test);
+  }
+  const foods = ['egg', 'egg', 'egg', 'egg', 'egg', 'meat', 'vegetable'];
+  console.log(removeTwoEggs(foods)); // ['egg', 'egg', 'meat', 'vegetable']
+</script>
+
+</html>

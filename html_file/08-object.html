@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>objects</title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+    //const object1 ={
+      //name: 'John',
+      //age: 30,
+      //city: 'New York',
+      //'address': {
+        //street: '123 Main St',
+        //zip: '10001'
+      //},
+      //'phone-numbers': ['123-456-7890', '987-654-3210'],
+    //};
+    //console.log(object1);
+    //console.log(object1.name);
+    //console.log(object1['age']);
+    //console.log(object1['phone-numbers'][0]);
+    //console.log(object1['phone-numbers']);
+    //console.log(object1['address']);
+    //object1['made-up'] = 'this is a made up property';
+    //object1['address']['country'] = 'USA';
+    //console.log(object1['made-up']);
+    //console.log(object1);
+    const objectJSON = {
+      "name": "Ian", // 这些是JSON的写法, 特点是 Key都是双引号包裹的, 且值也都是双引号包裹的, 除了数字和布尔值
+      "age": 25,
+      "city": "Plano",
+      "Address":{
+        "street": "4013 Guthrie Drive",
+        "zip": "75093"
+      }
+    };
+    const JSONedObject = JSON.stringify(objectJSON);
+    console.log(JSONedObject);
+    const parsedObject = JSON.parse(JSONedObject);
+    console.log(parsedObject);
+
+    localStorage.setItem('test', JSON.stringify(objectJSON));
+    objectJSON["name"] = "Lu";
+    console.log(objectJSON);
+    localStorage.setItem('test', JSON.stringify(objectJSON));
+    console.log(localStorage.getItem('test'));
+    console.log(localStorage.removeItem('test'));
+    console.log(localStorage.removeItem('test'));
+    //const retrievedObject = JSON.parse(localStorage.getItem('test'));
+    //console.log("This is retrieved obj:" , retrievedObject);
+    //localStorage.removeItem('test');
+    //console.log(localStorage.getItem('test'));
+
+  </script>
+</html>

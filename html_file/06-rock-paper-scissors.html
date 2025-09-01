@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"> <!--第一课 / First Lesson-->
+ <head>
+  <title> Lesson 6 </title>
+  <link rel ="stylesheet" href="../css_file/10-RPC.css">
+ </head> 
+ <body>
+  <input type="text" id= "userInput" placeholder="Enter Your Age" onkeydown="if(event.key === 'Enter') checkAge()">
+  <p class="game-title"> Rock Paper Scissors</p>
+  <button onclick=" playerDecision=0; gameResult();" class="button-uni rock-button"><img src="../10-ROC-Pictures/rock-emoji.png" class="move-icon" ></button>
+  <button onclick=" playerDecision=1; gameResult();" class="button-uni paper-button"><img src="../10-ROC-Pictures/paper-emoji.png" class="move-icon" ></button>
+  <button onclick=" playerDecision=2; gameResult();" class="button-uni scissor-button"><img src="../10-ROC-Pictures/scissors-emoji.png" class="move-icon" ></button>
+  <p class= "result-text"></p>
+  <p >You
+    <img class="player-move move-icon"> 
+    <img class="computer-move move-icon"> 
+    Computer
+  </p>
+  <p id="score-displayer"> `Wins: ${scoreBoard.wins}, Losses: ${scoreBoard.losses}`</p>
+  
+  
+  
+  
+  <button onclick=" resetScore();">Reset</button>
+  <a href="file:///F:/Javascript/html_file/10-dom-projects.html">
+    <button>Go Back To Menu</button>
+  </a>
+  
+  
+  
+  <script>
+    let playerDecision; 
+    let computerDecision;
+    let scoreBoard;
+    let playerMove = document.querySelector('.player-move');
+    let computerMove = document.querySelector('.computer-move');
+    console.log(playerMove.src, computerMove.src);
+
+    init();
+    function init(){
+      //scoreBoard = JSON.parse( localStorage.getItem('score') )? JSON.parse( localStorage.getItem('score') ): {
+        //"wins": 0,
+        //"losses": 0,
+        //"ties": 0
+      //};
+      scoreBoard = JSON.parse(localStorage.getItem('score')) || {
+        "wins": 0,
+        "losses": 0,
+        "ties": 0
+      };
+      console.log(scoreBoard);
+      document.getElementById('score-displayer').innerText = `Wins: ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
+    }
+
+    function randomNumberGenerator() {
+      computerDecision = Math.floor(Math.random() * 10) % 3;
+      if(computerDecision === 0) {
+        computerMove.src= "../10-ROC-Pictures/rock-emoji.png"
+      } else if (computerDecision === 1) {
+        computerMove.src= "../10-ROC-Pictures/paper-emoji.png"
+      } else {
+        computerMove.src= "../10-ROC-Pictures/scissors-emoji.png"
+      }
+    }
+    function playerDecisionHandler() {
+      if(playerDecision === 0) {
+        playerMove.src= "../10-ROC-Pictures/rock-emoji.png";
+      } else if (playerDecision === 1) {
+        playerMove.src= "../10-ROC-Pictures/paper-emoji.png";
+      } else {
+        playerMove.src= "../10-ROC-Pictures/scissors-emoji.png";
+      }
+    }
+    function gameResult() {
+      playerDecisionHandler();
+      randomNumberGenerator();
+      //console.log(playerMove.innerHTML, computerMove.innerHTML);
+      // Determine the result
+      if(playerDecision === computerDecision){
+        document.querySelector(".result-text").innerText="It's a tie!";
+        scoreBoard['ties']++;
+      }
+      else if((playerDecision === 0 && computerDecision === 2) || 
+              (playerDecision === 1 && computerDecision === 0) || 
+              (playerDecision === 2 && computerDecision === 1)) {
+        console.log("Player wins!");
+        document.querySelector(".result-text").innerText="Player wins!";
+        scoreBoard['wins']++;
+      } else {
+        scoreBoard['losses']++;
+        document.querySelector(".result-text").innerText="Player loses!";
+      }
+      document.getElementById('score-displayer').innerText = `Wins: ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
+      localStorage.setItem('score', JSON.stringify(scoreBoard));//更新
+    }
+
+    function resetScore(){
+      //localStorage.removeItem('score');
+      //init();
+      //console.log("Reset Successfully, your scoreboard now is :", scoreBoard);
+      //第二种写法:
+      scoreBoard.losses = scoreBoard.ties = scoreBoard.wins = 0;
+      localStorage.removeItem('score');
+      document.getElementById('score-displayer').innerText = `Wins: ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
+    }
+
+
+  </script>
+  <script>
+   // 获取输入框的值
+   function checkAge(){
+    let value = document.getElementById('userInput').value;
+    if(value <= 18){
+        alert('You are a minor.');
+    } else {
+        alert('You are an adult.');
+    }
+    console.log(value);
+    console.log(event);
+   }
+   </script>
+ </body>
+ <script></script>
+</html>

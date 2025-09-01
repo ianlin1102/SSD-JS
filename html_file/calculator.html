@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      .calculator{
+        display:grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+    </style>
+  </head>
+  <body>
+    <p>?</p>
+    <div class = "calculator">
+      <div class="first-row">
+        <button class = "button-1" onclick="expression += '1';">  1 </button>
+        <button class = "button-2" onclick="expression += '2';">  2 </button>
+        <button class = "button-3" onclick="expression += '3';">  3 </button>
+        <button class = "button-plus">  + </button>
+      </div>
+      <div class="second-row">
+        <button class="button-4">  4 </button>
+        <button class="button-5">  5 </button>
+        <button class="button-6">  6 </button>
+        <button class="button-minus">  - </button>
+      </div>
+      <div class="third-row">
+        <button class="button-7">  7 </button>
+        <button class="button-8">  8 </button>
+        <button class="button-9">  9 </button>
+        <button class="button-divide">  / </button>
+      </div>
+      <div class="fourth-row">
+        <button class="button-C" onclick="expression = '';">  C </button>
+        <button class="button-0">  0 </button>
+        <button class="button-mult">  * </button>
+        <button class="button-eval" onclick="console.log(expression)">  = </button>
+      </div>
+    </div>
+
+  </body>
+  <script>
+    let firstRow = document.querySelector('.first-row');
+    let secondRow = document.querySelector('.second-row');
+    let thirdRow = document.querySelector('.third-row');
+    let fourthRow = document.querySelector('.fourth-row');
+    console.log(firstRow);
+    console.log(secondRow);
+    console.log(thirdRow);
+    console.log(fourthRow);
+
+    let expression = '';
+
+
+  </script>
+</html>

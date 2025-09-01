@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"> <!--第一课 / First Lesson-->
+<html>
+<head>
+    <title> Lesson 5 </title>
+</head>
+
+<body>
+    <p>
+        Cart Quantity :
+    </p>
+    <button onclick="updateCart(0)"> Show Quantity</button>
+    <button onclick="updateCart(1)"> Add to Cart</button>
+    <button onclick="updateCart(2)"> +2</button>
+    <button onclick="updateCart(3)"> +3</button>
+    <button onclick="clearCart()"> Reset Cart</button>
+
+</body>
+<script>
+    let variable1 = 3;
+    console.log(variable1);
+    variable1 += 2;
+    let test = console.log(variable1 +5);
+    console.log(test);
+</script>
+<script>
+    let quantity = 0;
+
+    function updateCart(quantity_count){
+        quantity+= quantity_count;
+        console.log(`Cart Quantity : ${quantity}`)
+    }
+
+    function clearCart(){
+        quantity = 0;
+        console.log(`Cart is reset to ${quantity}`)
+    }
+
+</script>
+
+</html>

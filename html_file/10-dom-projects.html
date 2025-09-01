@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 10 DOM Project </title>
+  <link rel="stylesheet" href="../css_file/10-dom.css">
+</head>
+
+<body>
+  <p> Youtube Subscribe Button</p>
+  <button class='subscribe-button' onclick="
+      if(!changed){
+        buttonObject.innerText = 'Subscribe'
+        buttonObject.classList.remove('is-subbed');
+      }else{
+        buttonObject.innerText = 'Subscribed'
+        buttonObject.classList.add('is-subbed');
+      }
+      changed = !changed;
+         "> Subscribe</button>
+  <p class='title'> Rock Paper Scissors</p>
+  <a href="file:///F:/Javascript/html_file/06-rock-paper-scissors.html"> Click Here</a>
+  <p class='title'>Amazon Shipping Calculator</p>
+  <p>Orders under $40 = +$10 shipping.</p>
+  <p>Orders under $40 = FREE shipping.</p>
+
+  <input type="text" placeholder="Cost of order" id="order-cost-input" class="cost-input"
+    onkeydown="if(event.key === 'Enter'){calculateShipping()}">
+  <button onclick="calculateShipping();" class= "calculate-button">Calculate</button>
+  <p class="result">
+  </p>
+  <input type="text" placeholder="It will show what you type in here" class="immediate-displayer" onkeyup="
+  reflect.innerText = displayer.value;
+  ">
+  <p class="reflect"></p>
+
+<script src = "../javascript_file/10-dom-projects.js"></script>
+
+</body>
+
+<script>
+  //let buttonObject = document.querySelector('.subscribe-button');
+  //let changed = false;
+  //console.log(buttonObject);
+  //console.log(buttonObject.innerHTML);
+  //console.log(buttonObject.innerText);
+  //let anotherButtonObject = buttonObject;
+  //function calculateShipping() {
+    //let costInput = Number(document.getElementById('order-cost-input').value);
+    //let test = document.querySelector('#order-cost-input').value;
+    //costInput = costInput*100
+    //if (costInput >= 4000) {
+      //document.querySelector('.result').innerText = `$${( costInput/100 )}`;
+    //}
+    //else {
+      //document.querySelector('.result').innerText = `$${( costInput + 1000 )/100}`;
+    //}
+  //}
+  ////For immediate displayer
+  //let reflect = window.document.querySelector(".reflect");
+  //let displayer = window.document.querySelector(".immediate-displayer");
+
+//</script>
+
+</html>
